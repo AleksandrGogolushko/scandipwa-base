@@ -42,15 +42,13 @@ RUN apt-get update; \
 RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash -; \
     apt-get install -y nodejs
 
-# Install GOSU , SMTP and other packages
+# Install GOSU and other packages
 RUN apt-get install -y \
     gosu \
-    bc \
-    msmtp \
-    msmtp-mta
+    bc
 
 # Install composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=1.10.17
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install Magerun2 from n98
 RUN curl -O https://files.magerun.net/n98-magerun2.phar; \
